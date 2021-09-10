@@ -31,7 +31,7 @@ class Api {
     upcoming: () =>
       this.api.get("/movie/upcoming", {
         params: {
-          region: "KO",
+          region: "kr",
         },
       }),
   };
