@@ -2,10 +2,10 @@ import React from "react";
 import GlobalStyles from "./globalStyles";
 import Router from "./router";
 
-const App = () => {
+const App = ({ api }) => {
   return (
     <div className="App">
-      <Router />
+      <Router api={api} />
       <GlobalStyles />
     </div>
   );
