@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-const Container = styled.section`
-  height: 230px;
+const Container = styled.div`
+  height: 250px;
 `;
 
 const Title = styled.h1`
@@ -10,9 +10,13 @@ const Title = styled.h1`
   margin-bottom: 10px;
 `;
 
-const Grid = styled.ul`
+const Grid = styled.div`
+  width: 100%;
   height: 80%;
-  display: flex;
+  display: grid;
+  grid-gap: 10px;
+  grid-auto-flow: column;
+  grid-auto-columns: repeat(auto-fit, 125px);
   overflow-x: scroll;
 `;
 
