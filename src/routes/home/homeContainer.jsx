@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useCallback } from "react";
 import HomePresenter from "./homePresenter";
 
 const HomeContainer = ({ api }) => {
@@ -14,13 +15,25 @@ const HomeContainer = ({ api }) => {
 
   const [data, setData] = useState(initialState);
 
-  const loadData = async () => {
-    const allOfDay = await api.trending.allOfDay();
-    const allOfWeek = await api.trending.allOfWeek();
-    const movieOfDay = await api.trending.movieOfDay();
-    const movieOfWeek = await api.trending.movieOfWeek();
-    const tvOfDay = await api.trending.tvOfDay();
-    const tvOfWeek = await api.trending.tvOfWeek();
+  const loadData = useCallback(async () => {
+    const {
+      data: { results: allOfDay },
+    } = await api.trending.allOfDay();
+    const {
+      data: { results: allOfWeek },
+    } = await api.trending.allOfWeek();
+    const {
+      data: { results: movieOfDay },
+    } = await api.trending.movieOfDay();
+    const {
+      data: { results: movieOfWeek },
+    } = await api.trending.movieOfWeek();
+    const {
+      data: { results: tvOfDay },
+    } = await api.trending.tvOfDay();
+    const {
+      data: { results: tvOfWeek },
+    } = await api.trending.tvOfWeek();
     setData({
       allOfDay,
       allOfWeek,
@@ -30,13 +43,13 @@ const HomeContainer = ({ api }) => {
       tvOfWeek,
       isLoading: false,
     });
-  };
+  }, [api]);
 
   useEffect(() => {
     loadData();
-  }, [api]);
+  }, [api, loadData]);
 
-  return <HomePresenter />;
+  return <HomePresenter data={data} />;
 };
 
 export default HomeContainer;

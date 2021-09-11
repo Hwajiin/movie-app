@@ -27,6 +27,7 @@ const Item = styled.li`
 
 const SLink = styled(Link)`
   all: unset;
+  font-size: 600;
 `;
 
 export default withRouter((props) => {
@@ -36,16 +37,16 @@ export default withRouter((props) => {
   return (
     <Header>
       <List>
-        <Item current={pathname == "/"}>
+        <Item current={pathname === "/"}>
           <SLink to="/">Netfilx</SLink>
         </Item>
-        <Item current={pathname == "/movies"}>
+        <Item current={pathname === "/movies"}>
           <SLink to="/movies">Movies</SLink>
         </Item>
-        <Item current={pathname == "/tv"}>
+        <Item current={pathname === "/tv"}>
           <SLink to="/tv">TV</SLink>
         </Item>
-        <Item current={pathname == "/search"}>
+        <Item current={pathname === "/search"}>
           <SLink to="/search">Search</SLink>
         </Item>
       </List>

@@ -7,6 +7,8 @@ const GlobalStyles = createGlobalStyle`
         /* Color */
         --black-color: rgb(17, 17, 17);
         --white-color: white;
+        --grey-color: rgba(255, 255, 255, 0.6);
+        --point-color: #546de5;
     }
     * {
         box-sizing: border-box;
