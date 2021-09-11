@@ -5,10 +5,12 @@ import Movies from "../routes/movies";
 import TV from "../routes/tv";
 import Search from "../routes/search";
 import Detail from "../routes/detail";
+import Header from "./header";
 
 const Router = ({ api }) => {
   return (
     <HashRouter>
+      <Header />
       <Switch>
         <Route exact path="/">
           <Home api={api} />
