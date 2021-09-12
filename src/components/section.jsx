@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   height: 250px;
+  margin-bottom: 30px;
 `;
 
 const Title = styled.h1`
