@@ -12,7 +12,6 @@ const Container = styled.div`
 const MoviesPresenter = ({
   data: { topRated, nowPlaying, upcoming, isLoading },
 }) => {
-  console.log(topRated);
   return (
     <Container>
       {isLoading ? (

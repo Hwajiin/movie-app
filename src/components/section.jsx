@@ -17,7 +17,7 @@ const Grid = styled.div`
   display: grid;
   grid-gap: 10px;
   grid-auto-flow: column;
-  grid-auto-columns: repeat(auto-fill, 125px);
+  grid-template-columns: repeat(auto-fill, 140px);
   overflow-x: scroll;
 `;
 
