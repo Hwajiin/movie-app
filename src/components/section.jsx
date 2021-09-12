@@ -12,12 +12,12 @@ const Title = styled.h1`
 `;
 
 const Grid = styled.div`
-  width: 100%;
+  /* width: 100%; */
   height: 80%;
   display: grid;
   grid-gap: 10px;
   grid-auto-flow: column;
-  grid-auto-columns: repeat(auto-fit, 125px);
+  grid-auto-columns: repeat(auto-fill, 125px);
   overflow-x: scroll;
 `;
 

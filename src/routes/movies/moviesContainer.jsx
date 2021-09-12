@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useCallback } from "react";
 import MoviesPresenter from "./moviesPresenter";
 
 const MoviesContainer = ({ api }) => {
@@ -11,10 +12,16 @@ const MoviesContainer = ({ api }) => {
 
   const [data, setData] = useState(initialState);
 
-  const loadData = async () => {
-    const topRated = await api.movie.topRated();
-    const nowPlaying = await api.movie.nowPlaying();
-    const upcoming = await api.movie.upcoming();
+  const loadData = useCallback(async () => {
+    const {
+      data: { results: topRated },
+    } = await api.movie.topRated();
+    const {
+      data: { results: nowPlaying },
+    } = await api.movie.nowPlaying();
+    const {
+      data: { results: upcoming },
+    } = await api.movie.upcoming();
 
     setData({
       topRated,
@@ -22,12 +29,13 @@ const MoviesContainer = ({ api }) => {
       upcoming,
       isLoading: false,
     });
-  };
+  }, [api]);
 
   useEffect(() => {
     loadData();
-  }, [api]);
-  return <MoviesPresenter />;
+  }, [api, loadData]);
+
+  return <MoviesPresenter data={data} />;
 };
 
 export default MoviesContainer;

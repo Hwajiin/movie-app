@@ -9,7 +9,9 @@ const Header = styled.header`
   left: 0;
   width: 100%;
   height: 50px;
-  backdrop-filter: ${(props) => (props.scrollY > 70 ? "blur(2px)" : "normal")};
+  background-color: ${(props) =>
+    props.scrollY > 70 ? "rgba(1, 1, 1, 0.3)" : "transparent"};
+  backdrop-filter: ${(props) => (props.scrollY > 70 ? "blur(3px)" : "normal")};
 `;
 
 const List = styled.ul`

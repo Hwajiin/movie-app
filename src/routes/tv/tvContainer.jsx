@@ -1,4 +1,5 @@
 import React from "react";
+import { useCallback } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import TvPresenter from "./tvPresenter";
@@ -13,22 +14,30 @@ const TvContainer = ({ api }) => {
 
   const [data, setData] = useState(initialState);
 
-  const loadData = async () => {
-    const topRated = await api.tv.topRated();
-    const popular = await api.tv.popular();
-    const airingToday = await api.tv.airingToday();
+  const loadData = useCallback(async () => {
+    const {
+      data: { results: topRated },
+    } = await api.tv.topRated();
+    const {
+      data: { results: popular },
+    } = await api.tv.popular();
+    const {
+      data: { results: airingToday },
+    } = await api.tv.airingToday();
+
     setData({
       topRated,
       popular,
       airingToday,
       isLoading: false,
     });
-  };
+  }, [api]);
 
   useEffect(() => {
     loadData();
-  }, [api]);
-  return <TvPresenter />;
+  }, [api, loadData]);
+
+  return <TvPresenter data={data} />;
 };
 
 export default TvContainer;

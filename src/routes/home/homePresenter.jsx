@@ -20,7 +20,6 @@ const HomePresenter = ({
     tvOfWeek,
   },
 }) => {
-  console.log(allOfWeek);
   return (
     <Container>
       {isLoading ? (
