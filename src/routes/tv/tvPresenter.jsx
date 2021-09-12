@@ -28,6 +28,7 @@ const TvPresenter = ({
                   item.original_title ? item.original_title : item.original_name
                 }
                 poster={item.poster_path}
+                isMovie={false}
               />
             ))}
           </Section>
@@ -41,6 +42,7 @@ const TvPresenter = ({
                   item.original_title ? item.original_title : item.original_name
                 }
                 poster={item.poster_path}
+                isMovie={false}
               />
             ))}
           </Section>
@@ -54,6 +56,7 @@ const TvPresenter = ({
                   item.original_title ? item.original_title : item.original_name
                 }
                 poster={item.poster_path}
+                isMovie={false}
               />
             ))}
           </Section>

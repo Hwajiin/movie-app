@@ -1,12 +1,15 @@
 import React from "react";
 import { useState } from "react";
+import { useHistory } from "react-router";
 import SearchPresenter from "./searchPresenter";
 
 const SearchContainer = ({ api }) => {
   const initialState = {
     isLoading: true,
   };
+
   const [data, setData] = useState(initialState);
+
   return <SearchPresenter />;
 };
 

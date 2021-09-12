@@ -41,10 +41,15 @@ const Title = styled.span`
   font-size: 13px;
 `;
 
-const Poster = ({ title, poster, id }) => {
+const Poster = ({ title, poster, id, isMovie = true }) => {
   const poster_url = `https://image.tmdb.org/t/p/original${poster}`;
   return (
-    <SLink to={`/${id}`}>
+    <SLink
+      to={{
+        pathname: `/${id}`,
+        state: `${isMovie ? "movie" : "tv"}`,
+      }}
+    >
       <Container>
         <ImageContainer poster={poster_url}>
           <TitleBox>
