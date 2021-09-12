@@ -18,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
         color: var(--white-color);
         width: 100vw;
         padding-top: 60px;
+        height: 200vh;
     }
 `;
 
