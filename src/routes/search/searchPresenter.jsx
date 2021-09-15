@@ -98,6 +98,7 @@ const SearchPresenter = ({
                         : item.original_name
                     }
                     poster={item.poster_path}
+                    isMovie={false}
                   />
                 ))}
             </Section>

@@ -1,5 +1,8 @@
 import React from "react";
 
-const DetailPresenter = (props) => <h1>Detail</h1>;
+const DetailPresenter = ({ data: { result } }) => {
+  console.log(result);
+  return <></>;
+};
 
 export default DetailPresenter;

@@ -46,7 +46,7 @@ const Poster = ({ title, poster, id, isMovie = true }) => {
   return (
     <SLink
       to={{
-        pathname: `/${id}`,
+        pathname: isMovie ? `/movies/${id}` : `/tv/${id}`,
         state: `${isMovie ? "movie" : "tv"}`,
       }}
     >

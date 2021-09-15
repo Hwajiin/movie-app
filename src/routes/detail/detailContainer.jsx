@@ -1,11 +1,36 @@
-import React from "react";
-import { useHistory } from "react-router";
+import React, { useEffect, useState } from "react";
+import { useLocation, useParams } from "react-router";
 import DetailPresenter from "./detailPresenter";
 
-const DetailContainer = (props) => {
-  console.log(props);
+const DetailContainer = ({ api }) => {
+  const { pathname } = useLocation();
+  const { id } = useParams();
 
-  return <DetailPresenter />;
+  const isMovie = pathname.includes("movies") ? true : false;
+
+  const initialState = {
+    result: null,
+    isLoading: true,
+  };
+
+  const [data, setData] = useState(initialState);
+
+  const loadData = async () => {
+    let result = null;
+    const parsedId = parseInt(id);
+    if (isMovie) {
+      ({ data: result } = await api.movie.detail(parsedId));
+    } else {
+      ({ data: result } = await api.tv.detail(parsedId));
+    }
+    setData({ result, isLoading: false });
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  return <DetailPresenter data={data} />;
 };
 
 export default DetailContainer;

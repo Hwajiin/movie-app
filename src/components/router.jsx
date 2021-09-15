@@ -15,16 +15,21 @@ const Router = ({ api }) => {
         <Route exact path="/">
           <Home api={api} />
         </Route>
-        <Route path="/movies">
+        <Route exact path="/movies">
           <Movies api={api} />
         </Route>
-        <Route path="/tv">
+        <Route exact path="/tv">
           <TV api={api} />
         </Route>
         <Route path="/search">
           <Search api={api} />
         </Route>
-        <Route path="/:id" component={Detail} />
+        <Route path="/movies/:id">
+          <Detail api={api} />
+        </Route>
+        <Route path="/tv/:id">
+          <Detail api={api} />
+        </Route>
         <Redirect path="*" to="/" />
       </Switch>
     </HashRouter>
