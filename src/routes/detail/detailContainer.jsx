@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useCallback } from "react";
 import { useLocation, useParams } from "react-router";
 import DetailPresenter from "./detailPresenter";
 
@@ -15,7 +16,7 @@ const DetailContainer = ({ api }) => {
 
   const [data, setData] = useState(initialState);
 
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     let result = null;
     const parsedId = parseInt(id);
     if (isMovie) {
@@ -23,12 +24,13 @@ const DetailContainer = ({ api }) => {
     } else {
       ({ data: result } = await api.tv.detail(parsedId));
     }
+
     setData({ result, isLoading: false });
-  };
+  }, [api, id, isMovie]);
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [api, loadData]);
 
   return <DetailPresenter data={data} />;
 };
