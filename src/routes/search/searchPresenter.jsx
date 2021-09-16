@@ -8,7 +8,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.div`
   width: 100%;
-  padding: 20px;
+  padding: 70px 20px;
 `;
 
 const Form = styled.form`
