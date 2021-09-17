@@ -4,6 +4,8 @@ import styled from "styled-components";
 const Container = styled.div`
   height: 250px;
   margin-bottom: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
 `;
 
 const Title = styled.h1`
@@ -19,6 +21,9 @@ const Grid = styled.div`
   grid-auto-flow: column;
   grid-template-columns: repeat(auto-fill, 140px);
   overflow-x: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const Section = ({ title, children }) => {

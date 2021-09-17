@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import Carousel from "../../components/carousel";
 import Loader from "../../components/loader";
 import Poster from "../../components/poster";
 import Section from "../../components/section";
 
 const Container = styled.div`
   width: 100%;
-  padding: 70px 20px;
+  padding: 0 0px 50px 0px;
 `;
 
 const HomePresenter = ({
@@ -26,6 +27,7 @@ const HomePresenter = ({
         <Loader />
       ) : (
         <>
+          <Carousel data={allOfDay} />
           <Section title="일간 인기 영화">
             {movieOfDay.map((item) => (
               <Poster

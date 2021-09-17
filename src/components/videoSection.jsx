@@ -12,6 +12,9 @@ const Container = styled.section`
   grid-template-columns: repeat(auto-fit, 230px);
   overflow-x: scroll;
   border-radius: 5px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const VideoSection = ({ children }) => {
