@@ -1,20 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const Conatainer = styled.div`
   position: relative;
   width: 100vw;
-  height: 370px;
+  height: 400px;
   overflow: hidden;
   margin-bottom: 20px;
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, var(--black-color), 20%, transparent);
-  }
 `;
 
 const Sliders = styled.ul`
@@ -26,14 +20,45 @@ const Sliders = styled.ul`
 `;
 
 const Slide = styled.li`
+  position: relative;
   width: 100vw;
   height: 100%;
   background-image: url(${(props) => props.path});
   background-size: cover;
   background-position: center;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, var(--black-color), 20%, transparent);
+  }
+`;
+
+const DataContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+`;
+
+const Title = styled.p`
+  text-transform: uppercase;
+  opacity: 0.8;
+  font-weight: 700;
+  font-size: ${(props) => (props.length < 10 ? "2rem" : "1.5rem")};
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+`;
+
+const Average = styled.p`
+  font-size: 15px;
+  text-align: right;
 `;
 
 const Carousel = ({ data }) => {
+  console.log(data);
   const [curSlider, setCurSlider] = useState(1);
   const curSliderRef = useRef(1);
   const [marginLeft, setMarginLeft] = useState(0);
@@ -55,7 +80,7 @@ const Carousel = ({ data }) => {
   };
 
   useEffect(() => {
-    // handleCarousel();
+    handleCarousel();
   }, []);
 
   return (
@@ -67,7 +92,26 @@ const Carousel = ({ data }) => {
             path={`https://image.tmdb.org/t/p/original${
               item.backdrop_path ? item.backdrop_path : item.poster_path
             }`}
-          />
+          >
+            <DataContainer>
+              <Title
+                length={
+                  item.original_title
+                    ? item.original_title.length
+                    : item.original_name.length
+                }
+              >
+                {item.original_title ? item.original_title : item.original_name}
+              </Title>
+              <Average>
+                <FontAwesomeIcon
+                  icon={faStar}
+                  style={{ color: "#fbc531", marginRight: "10px" }}
+                />
+                {item.vote_average}
+              </Average>
+            </DataContainer>
+          </Slide>
         ))}
       </Sliders>
     </Conatainer>
