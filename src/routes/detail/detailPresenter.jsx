@@ -131,13 +131,18 @@ const DetailPresenter = ({ data: { result, isLoading } }) => {
                   {result.vote_average}
                 </Average>
                 <Year>
-                  {result.release_date
-                    ? result.release_date.slice(0, 4)
-                    : result.last_air_date.slice(0, 4)}
+                  {result.release_date || result.last_air_date
+                    ? result.release_date
+                      ? result.release_date.slice(0, 4)
+                      : result.last_air_date.slice(0, 4)
+                    : ""}
                 </Year>
                 <Runtime>
                   Runtime:{" "}
-                  {result.runtime ? result.runtime : result.episode_run_time}분
+                  {result.runtime && result.runtime
+                    ? result.runtime
+                    : result.episode_run_time}
+                  분
                 </Runtime>
                 <Genres>
                   {result.genres.map((genre, index) => (

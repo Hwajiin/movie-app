@@ -1,5 +1,11 @@
 import React, { useEffect, useCallback, useState } from "react";
+import { useHistory } from "react-router";
 import SearchPresenter from "./searchPresenter";
+
+const useHistoryState = () => {
+  const history = useHistory();
+  console.log(history);
+};
 
 const SearchContainer = ({ api }) => {
   const initialState = {
@@ -10,6 +16,8 @@ const SearchContainer = ({ api }) => {
   const [data, setData] = useState(initialState);
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
+
+  useHistoryState();
 
   const onClear = () => {
     setText("");

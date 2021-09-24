@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useCallback } from "react";
-import { useLocation, useParams } from "react-router";
+import { useHistory, useLocation, useParams } from "react-router";
 import DetailPresenter from "./detailPresenter";
 
 const DetailContainer = ({ api }) => {
   const { pathname } = useLocation();
   const { id } = useParams();
+  const history = useHistory();
 
   const isMovie = pathname.includes("movies") ? true : false;
 
@@ -17,16 +18,19 @@ const DetailContainer = ({ api }) => {
   const [data, setData] = useState(initialState);
 
   const loadData = useCallback(async () => {
-    let result = null;
-    const parsedId = parseInt(id);
-    if (isMovie) {
-      ({ data: result } = await api.movie.detail(parsedId));
-    } else {
-      ({ data: result } = await api.tv.detail(parsedId));
+    try {
+      let result = null;
+      const parsedId = parseInt(id);
+      if (isMovie) {
+        ({ data: result } = await api.movie.detail(parsedId));
+      } else {
+        ({ data: result } = await api.tv.detail(parsedId));
+      }
+      setData({ result, isLoading: false });
+    } catch {
+      history.push("/");
     }
-
-    setData({ result, isLoading: false });
-  }, [api, id, isMovie]);
+  }, [api, id, isMovie, history]);
 
   useEffect(() => {
     loadData();

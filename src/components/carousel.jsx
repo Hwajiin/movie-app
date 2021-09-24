@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
@@ -39,8 +39,8 @@ const Slide = styled.li`
 const DataContainer = styled.div`
   position: absolute;
   top: 50%;
-  right: 30px;
   transform: translateY(-50%);
+  right: 30px;
 `;
 
 const Title = styled.p`
@@ -50,6 +50,9 @@ const Title = styled.p`
   font-size: ${(props) => (props.length < 10 ? "2rem" : "1.5rem")};
   letter-spacing: 1px;
   margin-bottom: 5px;
+  @media (max-width: 600px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const Average = styled.p`
@@ -58,13 +61,12 @@ const Average = styled.p`
 `;
 
 const Carousel = ({ data }) => {
-  console.log(data);
   const [curSlider, setCurSlider] = useState(1);
   const curSliderRef = useRef(1);
   const [marginLeft, setMarginLeft] = useState(0);
   const marginLeftRef = useRef(0);
 
-  const handleCarousel = () => {
+  const handleCarousel = useCallback(() => {
     setInterval(() => {
       setCurSlider(
         curSliderRef.current === data.length
@@ -77,11 +79,12 @@ const Carousel = ({ data }) => {
           : (marginLeftRef.current -= 100)
       );
     }, 10000);
-  };
+  }, [data.length]);
 
   useEffect(() => {
     handleCarousel();
-  }, []);
+    return () => handleCarousel();
+  }, [handleCarousel]);
 
   return (
     <Conatainer>
