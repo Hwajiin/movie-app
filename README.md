@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# 📘 About The Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Built with: React, React Hooks, styled-component, axios, React-Router-Dom  
+> API: The movie DB API, Youtube API
+> Summary: Netflix와 같이 영화, TV Show 컨텐츠를 조회할 수 있는 웹 프로젝트
+> Deployment:
 
-## Available Scripts
+## 💡 프로젝트를 하게 된 계기
 
-In the project directory, you can run:
+이전에 진행했던 React 프로젝트들 보다 상대적으로 더 큰 규모의 프로젝트를 만들어보고자 했습니다.  
+또한, React-Router를 더 깊이 있게 이해하는 것을 목표로 프로젝틑를 진행했습니다.
 
-### `yarn start`
+## 📸 Detail shots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 📄 Description
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Components: React Hooks를 통해 전반적인 컴포넌트를 구현
+- CSS: styled-components를 사용한 스타일링
+- Axios 라이브러리를 사용하여 HTTP 통신
+- The movie DB의 API를 활용하여 영화, TV 컨텐츠를 조회할 수 있도록 설계
+- Youtube Iframe를 사용하여, 영화 및 TV 시리즈의 예고편을 시청할 수 있도록 구현
 
-### `yarn test`
+# ⭐️ 배운 점
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React-Router를 활용하여, SPA를 설계하는 것에 더욱 익숙해질 수 있었습니다
+- Youtube Iframe을 적절히 사용할 수 있게 되었습니다.
+- SetInterval을 사용하여, carousel을 만들어보면서 리액트의 라이프사이클과 리액트 프로그래밍 모델을  
+  더욱 깊게 이해할 수 있는 계기가 되었습니다.
